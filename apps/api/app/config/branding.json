@@ -1,0 +1,50 @@
+{
+  "branding": {
+    "name": "Aether Studio",
+    "short_name": "Aether",
+    "tagline": "One workspace for every generative model",
+    "support_email": null
+  },
+  "ui": {
+    "default_language": "en",
+    "languages": [
+      { "code": "en", "label": "English" },
+      { "code": "ru", "label": "Русский" },
+      { "code": "de", "label": "Deutsch" },
+      { "code": "es", "label": "Español" }
+    ],
+    "accents": [
+      { "id": "violet", "label": "Violet" },
+      { "id": "indigo", "label": "Indigo" },
+      { "id": "cyan", "label": "Cyan" },
+      { "id": "rose", "label": "Rose" }
+    ],
+    "uploads": {
+      "image": { "max_mb": 10, "mime_types": ["image/png", "image/jpeg", "image/webp"] },
+      "video": { "max_mb": 200, "mime_types": ["video/mp4", "video/webm", "video/quicktime"] }
+    },
+    "announcements": [
+      {
+        "id": "release-0-1",
+        "title": "Platform foundation released",
+        "body": "All studios are available as interfaces. AI providers will be connected in upcoming releases.",
+        "tag": "Release",
+        "date": "2026-11-13"
+      },
+      {
+        "id": "character-studio",
+        "title": "Character Studio preview",
+        "body": "Explore the motion transfer and multi-reference workflow layout ahead of provider integration.",
+        "tag": "Preview",
+        "date": "2026-11-13"
+      },
+      {
+        "id": "roadmap-accounts",
+        "title": "Next up: accounts and storage",
+        "body": "Sign-in, token wallet and persistent generation history are planned for a future release.",
+        "tag": "Roadmap",
+        "date": "2026-11-13"
+      }
+    ]
+  }
+}

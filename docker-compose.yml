@@ -1,0 +1,17 @@
+# Optional production-style run: docker compose up --build
+# Not needed for local development.
+services:
+  api:
+    build: ./apps/api
+    environment:
+      ENVIRONMENT: production
+      DOCS_ENABLED: "false"
+      CORS_ORIGINS: http://localhost:3000
+    ports: ["8000:8000"]
+  web:
+    build:
+      context: ./apps/web
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
+    ports: ["3000:3000"]
+    depends_on: [api]

@@ -1,0 +1,84 @@
+{
+  "currency": "USD",
+  "annual_discount_percent": 20,
+  "billing_enabled_note": "Billing will be enabled in a future release. No purchases are possible yet.",
+  "plans": [
+    {
+      "id": "explorer",
+      "name": "Explorer",
+      "tagline": "For trying out the platform",
+      "monthly_price": 0,
+      "monthly_tokens": 150,
+      "highlight": false,
+      "cta": "Current plan placeholder",
+      "model_access": "Core image models",
+      "limits": { "concurrent_jobs": 1, "max_video_seconds": 5, "max_resolution": "720p", "history_days": 7 },
+      "features": ["Image Studio", "Standard queue", "Personal use license"]
+    },
+    {
+      "id": "creator",
+      "name": "Creator",
+      "tagline": "For individual creators",
+      "monthly_price": 12,
+      "monthly_tokens": 1200,
+      "highlight": false,
+      "cta": "Upgrade to Creator",
+      "model_access": "All image models, core video models",
+      "limits": { "concurrent_jobs": 2, "max_video_seconds": 10, "max_resolution": "1080p", "history_days": 30 },
+      "features": ["Image & Video Studio", "Image Upscaler", "Commercial license"]
+    },
+    {
+      "id": "studio",
+      "name": "Studio",
+      "tagline": "For professionals and small teams",
+      "monthly_price": 39,
+      "monthly_tokens": 4500,
+      "highlight": true,
+      "cta": "Upgrade to Studio",
+      "model_access": "All models including character workflows",
+      "limits": { "concurrent_jobs": 4, "max_video_seconds": 10, "max_resolution": "4K", "history_days": 90 },
+      "features": ["Everything in Creator", "Character Studio", "Video Enhancer", "Priority queue"]
+    },
+    {
+      "id": "immortal",
+      "name": "Immortal",
+      "tagline": "For studios at production scale",
+      "monthly_price": 99,
+      "monthly_tokens": 13000,
+      "highlight": false,
+      "cta": "Upgrade to Immortal",
+      "model_access": "All models with early access to new releases",
+      "limits": { "concurrent_jobs": 8, "max_video_seconds": 10, "max_resolution": "4K", "history_days": 365 },
+      "features": ["Everything in Studio", "Highest priority queue", "Early model access", "API access (planned)"]
+    }
+  ],
+  "comparison": [
+    {
+      "group": "Tokens & limits",
+      "rows": [
+        { "label": "Monthly tokens", "values": { "explorer": "150", "creator": "1,200", "studio": "4,500", "immortal": "13,000" } },
+        { "label": "Concurrent generations", "values": { "explorer": "1", "creator": "2", "studio": "4", "immortal": "8" } },
+        { "label": "Max output resolution", "values": { "explorer": "720p", "creator": "1080p", "studio": "4K", "immortal": "4K" } },
+        { "label": "History retention", "values": { "explorer": "7 days", "creator": "30 days", "studio": "90 days", "immortal": "1 year" } }
+      ]
+    },
+    {
+      "group": "Studios",
+      "rows": [
+        { "label": "Image Studio", "values": { "explorer": true, "creator": true, "studio": true, "immortal": true } },
+        { "label": "Video Studio", "values": { "explorer": false, "creator": true, "studio": true, "immortal": true } },
+        { "label": "Character Studio", "values": { "explorer": false, "creator": false, "studio": true, "immortal": true } },
+        { "label": "Image Upscaler", "values": { "explorer": false, "creator": true, "studio": true, "immortal": true } },
+        { "label": "Video Enhancer", "values": { "explorer": false, "creator": false, "studio": true, "immortal": true } }
+      ]
+    },
+    {
+      "group": "Extras",
+      "rows": [
+        { "label": "Commercial license", "values": { "explorer": false, "creator": true, "studio": true, "immortal": true } },
+        { "label": "Priority queue", "values": { "explorer": false, "creator": false, "studio": true, "immortal": true } },
+        { "label": "Early model access", "values": { "explorer": false, "creator": false, "studio": false, "immortal": true } }
+      ]
+    }
+  ]
+}

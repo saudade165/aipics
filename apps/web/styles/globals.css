@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --bg: 9 9 12;
+    --surface: 15 15 20;
+    --surface-2: 21 21 28;
+    --surface-3: 30 30 39;
+    --fg: 238 238 243;
+    --muted: 160 160 176;
+    --subtle: 110 110 126;
+    --success: 52 211 153;
+    --warning: 251 191 36;
+    --danger: 248 113 113;
+
+    /* Accent palette — swapped at runtime by the Appearance setting. */
+    --accent: 139 92 246;
+    --accent-2: 99 102 241;
+    --accent-3: 34 211 238;
+  }
+
+  [data-accent="indigo"] { --accent: 99 102 241; --accent-2: 59 130 246; --accent-3: 129 140 248; }
+  [data-accent="cyan"] { --accent: 34 211 238; --accent-2: 14 165 233; --accent-3: 99 102 241; }
+  [data-accent="rose"] { --accent: 244 63 94; --accent-2: 168 85 247; --accent-3: 251 146 60; }
+
+  [data-density="compact"] { font-size: 15px; }
+
+  * { @apply border-white/[0.07]; }
+
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    @apply bg-bg text-fg font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection { background: rgb(var(--accent) / 0.35); }
+
+  :focus-visible { outline: none; }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: rgb(255 255 255 / 0.08); border-radius: 999px; border: 3px solid transparent; background-clip: padding-box; }
+  ::-webkit-scrollbar-thumb:hover { background-color: rgb(255 255 255 / 0.14); }
+  ::-webkit-scrollbar-track { background: transparent; }
+}
+
+@layer components {
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+
+  .card {
+    @apply rounded-xl border border-white/[0.07] bg-surface/80 shadow-card;
+  }
+
+  .card-hover {
+    @apply transition-[border-color,background-color,box-shadow] duration-300 ease-out-expo hover:border-white/[0.12] hover:bg-surface-2/80 hover:shadow-lift;
+  }
+
+  .glass {
+    @apply border border-white/[0.08] bg-surface/60 backdrop-blur-xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(100deg, rgb(var(--fg)) 10%, rgb(var(--accent-3)) 55%, rgb(var(--accent)) 95%);
+  }
+
+  .bg-accent-gradient {
+    background-image: linear-gradient(135deg, rgb(var(--accent)) 0%, rgb(var(--accent-2)) 100%);
+  }
+
+  .hairline {
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.1), transparent);
+  }
+
+  .label-eyebrow {
+    @apply text-2xs font-medium uppercase tracking-[0.14em] text-subtle;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .mask-fade-b { mask-image: linear-gradient(to bottom, black 40%, transparent); }
+  .mask-radial { mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

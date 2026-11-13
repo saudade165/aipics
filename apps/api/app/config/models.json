@@ -1,0 +1,270 @@
+{
+  "categories": [
+    { "id": "image", "label": "Image generation" },
+    { "id": "video", "label": "Video generation" },
+    { "id": "character", "label": "Character workflows" },
+    { "id": "upscale", "label": "Image upscaling" },
+    { "id": "video_enhance", "label": "Video enhancement" }
+  ],
+  "models": [
+    {
+      "id": "flux",
+      "name": "FLUX",
+      "vendor": "Black Forest Labs",
+      "category": "image",
+      "provider": "flux",
+      "tagline": "Photoreal detail and precise prompt adherence",
+      "description": "High-fidelity text-to-image model with strong typography, lighting and composition control.",
+      "badges": ["Popular"],
+      "accent": ["#8b5cf6", "#6366f1"],
+      "capabilities": ["text_to_image", "image_to_image"],
+      "aspect_ratios": ["1:1", "4:3", "3:4", "16:9", "9:16", "21:9"],
+      "resolutions": [
+        { "id": "1k", "label": "1K", "detail": "~1 MP", "multiplier": 1.0 },
+        { "id": "2k", "label": "2K", "detail": "~4 MP", "multiplier": 1.75 }
+      ],
+      "max_outputs": 4,
+      "max_reference_images": 4,
+      "supports_negative_prompt": true,
+      "pricing": { "unit": "per_output", "base_tokens": 4 }
+    },
+    {
+      "id": "gpt-image",
+      "name": "GPT Image",
+      "vendor": "OpenAI",
+      "category": "image",
+      "provider": "openai_images",
+      "tagline": "Instruction-following edits and rich text rendering",
+      "description": "Multimodal image model suited for edits from natural-language instructions and multi-image references.",
+      "badges": [],
+      "accent": ["#10b981", "#0ea5e9"],
+      "capabilities": ["text_to_image", "image_to_image", "image_edit"],
+      "aspect_ratios": ["1:1", "3:2", "2:3"],
+      "resolutions": [
+        { "id": "standard", "label": "Standard", "detail": "1024 px", "multiplier": 1.0 },
+        { "id": "hd", "label": "HD", "detail": "1536 px", "multiplier": 1.5 }
+      ],
+      "max_outputs": 4,
+      "max_reference_images": 8,
+      "supports_negative_prompt": false,
+      "pricing": { "unit": "per_output", "base_tokens": 6 }
+    },
+    {
+      "id": "seedream",
+      "name": "Seedream",
+      "vendor": "ByteDance",
+      "category": "image",
+      "provider": "seedream",
+      "tagline": "Native high resolution up to 4K",
+      "description": "Fast high-resolution generation with multi-reference conditioning and consistent styling.",
+      "badges": ["New"],
+      "accent": ["#f97316", "#ec4899"],
+      "capabilities": ["text_to_image", "image_to_image"],
+      "aspect_ratios": ["1:1", "4:3", "3:4", "16:9", "9:16", "21:9"],
+      "resolutions": [
+        { "id": "2k", "label": "2K", "detail": "2048 px", "multiplier": 1.0 },
+        { "id": "4k", "label": "4K", "detail": "4096 px", "multiplier": 2.0 }
+      ],
+      "max_outputs": 4,
+      "max_reference_images": 6,
+      "supports_negative_prompt": true,
+      "pricing": { "unit": "per_output", "base_tokens": 3 }
+    },
+    {
+      "id": "nano-banana",
+      "name": "Nano Banana",
+      "vendor": "Google",
+      "category": "image",
+      "provider": "gemini_image",
+      "tagline": "Conversational editing and character consistency",
+      "description": "Image generation and editing model known for keeping subjects consistent across edits.",
+      "badges": [],
+      "accent": ["#eab308", "#22d3ee"],
+      "capabilities": ["text_to_image", "image_edit"],
+      "aspect_ratios": ["1:1", "4:3", "3:4", "16:9", "9:16"],
+      "resolutions": [
+        { "id": "1k", "label": "1K", "detail": "1024 px", "multiplier": 1.0 }
+      ],
+      "max_outputs": 4,
+      "max_reference_images": 3,
+      "supports_negative_prompt": false,
+      "pricing": { "unit": "per_output", "base_tokens": 4 }
+    },
+    {
+      "id": "kling",
+      "name": "Kling",
+      "vendor": "Kuaishou",
+      "category": "video",
+      "provider": "kling",
+      "tagline": "Cinematic motion with first and last frame control",
+      "description": "Text, image and reference-to-video with strong physics, camera movement and optional native audio.",
+      "badges": ["Popular"],
+      "accent": ["#6366f1", "#22d3ee"],
+      "capabilities": ["text_to_video", "image_to_video", "reference_to_video"],
+      "aspect_ratios": ["16:9", "9:16", "1:1"],
+      "resolutions": [
+        { "id": "720p", "label": "720p", "detail": "1280×720", "multiplier": 1.0 },
+        { "id": "1080p", "label": "1080p", "detail": "1920×1080", "multiplier": 1.8 }
+      ],
+      "durations": [5, 10],
+      "max_reference_images": 4,
+      "supports_negative_prompt": true,
+      "supports_audio": true,
+      "supports_last_frame": true,
+      "pricing": { "unit": "per_second", "base_tokens": 6, "audio_tokens_per_second": 2 }
+    },
+    {
+      "id": "seedance",
+      "name": "Seedance",
+      "vendor": "ByteDance",
+      "category": "video",
+      "provider": "seedance",
+      "tagline": "Multi-shot storytelling with stable subjects",
+      "description": "Video model focused on multi-shot narratives, smooth motion and prompt-faithful scenes.",
+      "badges": ["New"],
+      "accent": ["#ec4899", "#8b5cf6"],
+      "capabilities": ["text_to_video", "image_to_video", "reference_to_video"],
+      "aspect_ratios": ["16:9", "9:16", "1:1", "4:3", "21:9"],
+      "resolutions": [
+        { "id": "480p", "label": "480p", "detail": "854×480", "multiplier": 0.6 },
+        { "id": "720p", "label": "720p", "detail": "1280×720", "multiplier": 1.0 },
+        { "id": "1080p", "label": "1080p", "detail": "1920×1080", "multiplier": 1.7 }
+      ],
+      "durations": [5, 10],
+      "max_reference_images": 4,
+      "supports_negative_prompt": false,
+      "supports_audio": false,
+      "supports_last_frame": true,
+      "pricing": { "unit": "per_second", "base_tokens": 5 }
+    },
+    {
+      "id": "wan",
+      "name": "Wan",
+      "vendor": "Alibaba",
+      "category": "video",
+      "provider": "wan",
+      "tagline": "Open-weight video model with audio support",
+      "description": "Efficient text and image-to-video generation, suitable for self-hosted inference later on.",
+      "badges": ["Open weights"],
+      "accent": ["#14b8a6", "#6366f1"],
+      "capabilities": ["text_to_video", "image_to_video"],
+      "aspect_ratios": ["16:9", "9:16", "1:1"],
+      "resolutions": [
+        { "id": "480p", "label": "480p", "detail": "854×480", "multiplier": 0.6 },
+        { "id": "720p", "label": "720p", "detail": "1280×720", "multiplier": 1.0 }
+      ],
+      "durations": [5],
+      "max_reference_images": 0,
+      "supports_negative_prompt": true,
+      "supports_audio": true,
+      "supports_last_frame": false,
+      "pricing": { "unit": "per_second", "base_tokens": 3, "audio_tokens_per_second": 1 }
+    },
+    {
+      "id": "wan-animate",
+      "name": "Wan Animate",
+      "vendor": "Alibaba",
+      "category": "character",
+      "provider": "wan_animate",
+      "tagline": "Motion transfer and character replacement",
+      "description": "Animates a character image with motion from a driving video, or replaces the performer in a clip.",
+      "badges": [],
+      "accent": ["#8b5cf6", "#22d3ee"],
+      "capabilities": ["motion_transfer", "character_replacement"],
+      "workflows": ["motion_transfer", "character_replacement"],
+      "aspect_ratios": ["16:9", "9:16", "1:1"],
+      "resolutions": [
+        { "id": "480p", "label": "480p", "detail": "854×480", "multiplier": 0.6 },
+        { "id": "720p", "label": "720p", "detail": "1280×720", "multiplier": 1.0 }
+      ],
+      "durations": [5, 10],
+      "max_reference_images": 3,
+      "pricing": { "unit": "per_second", "base_tokens": 5 }
+    },
+    {
+      "id": "kling-multi-reference",
+      "name": "Kling Multi-Reference",
+      "vendor": "Kuaishou",
+      "category": "character",
+      "provider": "kling",
+      "tagline": "Consistent identity from several reference images",
+      "description": "Conditions generation on multiple images of the same subject for reference-to-video workflows.",
+      "badges": ["Planned"],
+      "accent": ["#6366f1", "#ec4899"],
+      "capabilities": ["reference_to_video", "multi_image_conditioning"],
+      "workflows": ["reference_to_video", "multi_image_conditioning"],
+      "aspect_ratios": ["16:9", "9:16", "1:1"],
+      "resolutions": [
+        { "id": "720p", "label": "720p", "detail": "1280×720", "multiplier": 1.0 },
+        { "id": "1080p", "label": "1080p", "detail": "1920×1080", "multiplier": 1.8 }
+      ],
+      "durations": [5, 10],
+      "max_reference_images": 4,
+      "pricing": { "unit": "per_second", "base_tokens": 7 }
+    },
+    {
+      "id": "clarity-upscaler",
+      "name": "Clarity Upscaler",
+      "vendor": "Community",
+      "category": "upscale",
+      "provider": "clarity",
+      "tagline": "Creative upscaling that re-imagines fine detail",
+      "description": "Diffusion-based upscaler that adds plausible texture and detail while enlarging.",
+      "badges": [],
+      "accent": ["#22d3ee", "#6366f1"],
+      "capabilities": ["upscale", "detail_enhance"],
+      "scales": [2, 4, 8],
+      "pricing": { "unit": "per_job", "base_tokens": 2, "scale_multipliers": { "2": 1.0, "4": 2.0, "8": 4.0 } }
+    },
+    {
+      "id": "real-esrgan",
+      "name": "Real-ESRGAN",
+      "vendor": "Open source",
+      "category": "upscale",
+      "provider": "real_esrgan",
+      "tagline": "Faithful restoration without hallucinated detail",
+      "description": "Fast GAN-based upscaler that preserves the original content, ideal for photos and screenshots.",
+      "badges": ["Open weights"],
+      "accent": ["#64748b", "#22d3ee"],
+      "capabilities": ["upscale", "face_restore"],
+      "scales": [2, 4],
+      "pricing": { "unit": "per_job", "base_tokens": 1, "scale_multipliers": { "2": 1.0, "4": 1.5 } }
+    },
+    {
+      "id": "video-upscale-pro",
+      "name": "Video Upscale Pro",
+      "vendor": "Planned partner",
+      "category": "video_enhance",
+      "provider": "video_upscale",
+      "tagline": "Resolution upscaling with temporal stability",
+      "description": "Placeholder entry for a commercial video enhancement provider to be selected later.",
+      "badges": ["Planned"],
+      "accent": ["#8b5cf6", "#0ea5e9"],
+      "capabilities": ["upscale", "denoise", "stabilize"],
+      "resolutions": [
+        { "id": "1080p", "label": "1080p", "detail": "1920×1080", "multiplier": 1.0 },
+        { "id": "1440p", "label": "1440p", "detail": "2560×1440", "multiplier": 1.5 },
+        { "id": "4k", "label": "4K", "detail": "3840×2160", "multiplier": 2.5 }
+      ],
+      "fps_options": [24, 30, 60],
+      "pricing": { "unit": "per_second", "base_tokens": 1, "fps_multipliers": { "24": 1.0, "30": 1.0, "60": 1.4 } }
+    },
+    {
+      "id": "rife-interpolation",
+      "name": "RIFE Interpolation",
+      "vendor": "Open source",
+      "category": "video_enhance",
+      "provider": "rife",
+      "tagline": "Smooth frame interpolation up to 120 fps",
+      "description": "Real-time intermediate flow estimation for converting footage to higher frame rates.",
+      "badges": ["Open weights"],
+      "accent": ["#14b8a6", "#8b5cf6"],
+      "capabilities": ["frame_interpolation"],
+      "resolutions": [
+        { "id": "1080p", "label": "1080p", "detail": "Source size", "multiplier": 1.0 }
+      ],
+      "fps_options": [30, 60, 120],
+      "pricing": { "unit": "per_second", "base_tokens": 0.5, "fps_multipliers": { "30": 1.0, "60": 1.5, "120": 2.5 } }
+    }
+  ]
+}
