@@ -45,7 +45,10 @@ export function useGenerationPreview() {
           toast({
             tone: "integration",
             title: DISABLED_MESSAGE,
-            description: "The API could not validate this request right now. Generation is disabled in this release either way.",
+            description:
+              error instanceof ApiError && error.code === "static_demo"
+                ? "This is a static preview of the platform. Your settings look valid, but nothing was generated."
+                : "The API could not validate this request right now. Generation is disabled in this release either way.",
           });
         }
       } finally {

@@ -283,7 +283,7 @@ function SystemStatus() {
   return (
     <>
       <SettingsCard title="API connection" description="The web app reads configuration, catalogs and feature flags from the backend.">
-        <SettingRow title="Endpoint" description={env.apiUrl || "NEXT_PUBLIC_API_URL is not set"} control={<Badge tone={status === "ready" ? "success" : status === "loading" ? "neutral" : "danger"}>{status === "ready" ? "Connected" : status === "loading" ? "Connecting…" : "Unreachable"}</Badge>} />
+        <SettingRow title="Endpoint" description={env.staticData ? "Static demo: build-time data snapshot, no live API" : env.apiUrl || "NEXT_PUBLIC_API_URL is not set"} control={<Badge tone={status === "ready" ? "success" : status === "loading" ? "neutral" : "danger"}>{status === "ready" ? "Connected" : status === "loading" ? "Connecting…" : "Unreachable"}</Badge>} />
         <SettingRow title="API version" description={config ? `Environment: ${config.environment}` : undefined} control={<span className="font-mono text-sm text-muted">{config?.app_version ?? "—"}</span>} />
         <SettingRow title="Reload configuration" control={<Button size="sm" onClick={retry}><RotateCcw />Reload</Button>} />
       </SettingsCard>

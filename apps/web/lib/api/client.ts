@@ -39,12 +39,18 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
 
   let response: Response;
   try {
-    response = await fetch(`${env.apiUrl}${path}`, {
+    // Static demo mode reads build-time JSON snapshots; it has no write endpoints.
+    if (env.staticData && init.method && init.method !== "GET") {
+      throw new ApiError("This is a static demo without a live API.", 0, "static_demo");
+    }
+    const url = env.staticData ? `${env.basePath}/data${path}.json` : `${env.apiUrl}${path}`;
+    response = await fetch(url, {
       ...init,
       signal: init.signal ?? controller.signal,
       headers: { Accept: "application/json", ...(init.body ? { "Content-Type": "application/json" } : {}), ...init.headers },
     });
   } catch (cause) {
+    if (cause instanceof ApiError) throw cause;
     const aborted = cause instanceof DOMException && cause.name === "AbortError";
     throw new ApiError(aborted ? "The API request timed out." : "The API is unreachable.", 0, aborted ? "timeout" : "network_error");
   } finally {

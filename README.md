@@ -52,6 +52,17 @@ npm run typecheck   # tsc --noEmit
 docker compose up --build   # optional containerised run
 ```
 
+## Static demo on GitHub Pages
+
+Every push to `main` runs `.github/workflows/pages.yml`: it tests the API, exports the read-only
+endpoints to JSON (`apps/api/scripts/export_static.py`) and builds the web app as a static site
+(`STATIC_EXPORT=true`, `NEXT_PUBLIC_STATIC_DATA=true`). The result is published to GitHub Pages.
+
+One-time setup: repository **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+The static demo has no live backend: catalogs come from the build-time snapshot and *Generate*
+shows the "not connected" notice without server-side validation.
+
 ## Project structure
 
 ```
